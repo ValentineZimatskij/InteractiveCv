@@ -20,5 +20,14 @@ dist-ssr
 *.suo
 *.ntvs*
 *.njsproj
-*.sln
 *.sw?
+
+# Docker
+docker-compose.override.yml
+
+# Database
+postgres-data/
+
+# Dependencies
+InteractiveCv.Client/node_modules/
+InteractiveCv.Client/dist/
