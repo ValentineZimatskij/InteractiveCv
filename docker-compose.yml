@@ -1,0 +1,47 @@
+version: '3.8'
+
+services:
+  # Сервис с вашей базой данных PostgreSQL
+  db:
+    image: postgres:latest
+    container_name: cv-database
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin
+      POSTGRES_DB: my_cv_db
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    networks:
+      - cv-network
+    restart: unless-stopped
+
+  # Сервис с вашим ASP.NET приложением
+  web:
+    build:
+      context: .
+      dockerfile: InteractiveCv.Server/Dockerfile
+    container_name: cv-web-api
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    depends_on:
+      - db
+    ports:
+      - "5000:8080"   # HTTP
+      - "5001:443"  # HTTPS
+    volumes:
+      - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
+      - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
+    networks:
+      - cv-network
+    restart: unless-stopped
+
+# Определяем именованный том для данных БД
+volumes:
+  postgres-data:
+
+# Определяем сеть для сервисов
+networks:
+  cv-network:
+    driver: bridge

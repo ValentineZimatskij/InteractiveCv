@@ -1,0 +1,6 @@
+@InteractiveCv.Server_HostAddress = http://localhost:5273
+
+GET {{InteractiveCv.Server_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
