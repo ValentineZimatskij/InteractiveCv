@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   # Сервис с вашей базой данных PostgreSQL
   db:
@@ -28,8 +26,8 @@ services:
     depends_on:
       - db
     ports:
-      - "5000:8080"   # HTTP
-      - "5001:443"  # HTTPS
+      - "5000:8080"   # HTTP -> 8080
+      - "5001:8081"   # HTTPS -> 8081 (исправлено!)
     volumes:
       - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
       - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
