@@ -34,7 +34,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\interactivecv.client\interactivecv.client.esproj">
+		<ProjectReference Include="..\interactivecv.client\InteractiveCv.Client.esproj">
 			<ReferenceOutputAssembly>false</ReferenceOutputAssembly>
 		</ProjectReference>
 	</ItemGroup>

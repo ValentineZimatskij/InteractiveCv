@@ -1,17 +1,30 @@
-# См. статью по ссылке https://aka.ms/customizecontainer, чтобы узнать как настроить контейнер отладки и как Visual Studio использует этот Dockerfile для создания образов для ускорения отладки.
-
-# Этот этап используется при запуске из VS в быстром режиме (по умолчанию для конфигурации отладки)
+﻿# Multi-stage build for Production
 FROM mcr.microsoft.com/dotnet/aspnet:9.0 AS base
-# УБРАТЬ USER $APP_UID или ЗАМЕНИТЬ на фиксированное значение
 USER app
 WORKDIR /app
 EXPOSE 8080
-EXPOSE 8081
+
+FROM node:22 AS client-build
+WORKDIR /src
+
+# Копируем только package файлы для лучшего кэширования
+COPY ["InteractiveCv.Client/package.json", "InteractiveCv.Client/package-lock.json*", "InteractiveCv.Client/"]
+WORKDIR "/src/InteractiveCv.Client"
+RUN npm ci
+# Копируем остальные файлы и собираем
+COPY ["InteractiveCv.Client/", "."]
+# Добавьте проверку перед билдом
+RUN npm run build
 
 # Этот этап используется для сборки проекта службы
 FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
+
+# Копируем собранный фронтенд
+RUN rm -rf /src/InteractiveCv.Server/wwwroot && mkdir -p /src/InteractiveCv.Server/wwwroot
+COPY --from=client-build /src/InteractiveCv.Client/dist ./InteractiveCv.Server/wwwroot/
+
 COPY ["InteractiveCv.Server/InteractiveCv.Server.csproj", "InteractiveCv.Server/"]
 RUN dotnet restore "./InteractiveCv.Server/InteractiveCv.Server.csproj"
 COPY ["InteractiveCv.Server/", "InteractiveCv.Server/"]
@@ -28,5 +41,4 @@ FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
 ENTRYPOINT ["dotnet", "InteractiveCv.Server.dll"]
-HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
-  CMD curl -f http://localhost:8080/health || exit 1
+

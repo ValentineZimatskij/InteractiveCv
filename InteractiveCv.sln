@@ -5,7 +5,7 @@ VisualStudioVersion = 17.8.34330.188
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InteractiveCv.Server", "InteractiveCv.Server\InteractiveCv.Server.csproj", "{DE822DB5-4050-4110-BA55-E68720D7D26D}"
 EndProject
-Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "interactivecv.client", "interactivecv.client\interactivecv.client.esproj", "{6741C55F-CEAC-44F8-9CAD-795F64AD132F}"
+Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "InteractiveCv.Client", "interactivecv.client\InteractiveCv.Client.esproj", "{6741C55F-CEAC-44F8-9CAD-795F64AD132F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

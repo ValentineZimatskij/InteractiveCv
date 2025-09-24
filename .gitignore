@@ -3,6 +3,38 @@
 ##
 ## Get latest from https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
 
+# Frontend (React/Vite) specific
+**/dist/                  # Собранный фронтенд
+**/.env.local            # Локальные переменные окружения
+**/.env.development
+**/.env.production
+**/npm-debug.log*
+**/yarn-debug.log*
+**/yarn-error.log*
+**/pnpm-debug.log*
+**/lerna-debug.log*
+
+# Vite specific
+**/vite.config.js.timestamp-*
+**/vite.config.ts.timestamp-*
+
+# IDE
+.idea/                   # JetBrains IDE
+*.swp                   # Vim swap files
+*.swo                   # Vim swap files
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Docker
+.docker/                 # Docker контексты
+
 # User-specific files
 *.rsuser
 *.suo

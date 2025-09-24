@@ -3,7 +3,7 @@
     "Docker Compose": {
       "commandName": "Executable",
       "executablePath": "cmd.exe",
-      "commandLineArgs": "/c docker compose up --build -d && start http://localhost:5000/swagger",
+      "commandLineArgs": "/c docker compose up --build -d && start http://localhost:5000",
       "workingDirectory": "$(ProjectDir)",
       "launchBrowser": false
     },
@@ -27,3 +27,4 @@
     }
   }
 }
+

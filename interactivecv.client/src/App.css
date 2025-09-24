@@ -1,19 +1,28 @@
-﻿#root {
-    max-width: 1280px;
-    margin: 0 auto;
-    padding: 2rem;
+﻿/* InteractiveCv.Client/src/App.css */
+.App {
     text-align: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    color: white;
+    padding: 0;
+    margin: 0;
 }
 
-tr:nth-child(even) {
-    background: #F2F2F2;
+.App-header {
+    padding: 40px 20px 20px;
 }
 
-tr:nth-child(odd) {
-    background: #FFF;
-}
+    .App-header h1 {
+        margin: 0 0 10px 0;
+        font-size: 2.5em;
+    }
 
-th, td {
-    padding-left: 1rem;
-    padding-right: 1rem;
+    .App-header p {
+        margin: 0;
+        opacity: 0.8;
+        font-size: 1.1em;
+    }
+
+main {
+    padding: 20px;
 }

@@ -21,8 +21,13 @@
 **/obj
 **/secrets.dev.yaml
 **/values.dev.yaml
-LICENSE
-README.md
+
+**/dist                   # Исключаем собранный фронтенд (собираем заново)
+**/.sln                   # Файл решения Visual Studio
+**/README.md              # Документация
+**/LICENSE                # Лицензии
+
+# Исключения для Git
 !**/.gitignore
 !.git/HEAD
 !.git/config

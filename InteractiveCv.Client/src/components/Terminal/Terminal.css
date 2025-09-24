@@ -1,0 +1,125 @@
+/* InteractiveCv.Client/src/components/Terminal/Terminal.css */
+.terminal {
+    background: #1e1e1e;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    font-family: 'Courier New', monospace;
+    max-width: 800px;
+    margin: 20px auto;
+}
+
+.terminal-header {
+    background: #363636;
+    padding: 10px 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.terminal-buttons {
+    display: flex;
+    gap: 8px;
+}
+
+    .terminal-buttons .button {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        display: inline-block;
+    }
+
+    .terminal-buttons .close {
+        background: #ff5f56;
+    }
+
+    .terminal-buttons .minimize {
+        background: #ffbd2e;
+    }
+
+    .terminal-buttons .maximize {
+        background: #27ca3f;
+    }
+
+.terminal-title {
+    color: #fff;
+    font-size: 14px;
+    flex: 1;
+    text-align: center;
+}
+
+.terminal-body {
+    padding: 20px;
+    height: 400px;
+    overflow-y: auto;
+    color: #00ff00;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.welcome-message {
+    color: #00ff00;
+    margin-bottom: 15px;
+    opacity: 0.8;
+}
+
+.command-block {
+    margin-bottom: 15px;
+}
+
+.command-input {
+    color: #00ff00;
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+}
+
+.prompt {
+    color: #00ff00;
+    margin-right: 8px;
+    font-weight: bold;
+}
+
+.command-input-field {
+    background: transparent;
+    border: none;
+    color: #00ff00;
+    font-family: 'Courier New', monospace;
+    font-size: 14px;
+    outline: none;
+    flex: 1;
+    margin-left: 8px;
+}
+
+    .command-input-field::placeholder {
+        color: #00ff00;
+        opacity: 0.6;
+    }
+
+.command-output {
+    color: #ffffff;
+    white-space: pre-line;
+    margin-left: 20px;
+    border-left: 2px solid #00ff00;
+    padding-left: 10px;
+    margin-top: 5px;
+}
+
+.input-line {
+    display: flex;
+    align-items: center;
+}
+
+/* Полоса прокрутки */
+.terminal-body::-webkit-scrollbar {
+    width: 8px;
+}
+
+.terminal-body::-webkit-scrollbar-track {
+    background: #2d2d2d;
+}
+
+.terminal-body::-webkit-scrollbar-thumb {
+    background: #00ff00;
+    border-radius: 4px;
+}
