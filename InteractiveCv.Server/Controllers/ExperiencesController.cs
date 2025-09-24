@@ -24,7 +24,7 @@ namespace InteractiveCv.Server.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Experience>>> GetExperiences()
         {
-            return await _context.Experiences.ToListAsync();
+            return await _context.Experiences.OrderBy(e => e.Order).ToListAsync();
         }
 
         // GET: api/Experiences/5
