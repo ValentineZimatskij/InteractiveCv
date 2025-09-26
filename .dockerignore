@@ -26,6 +26,7 @@
 **/.sln                   # Файл решения Visual Studio
 **/README.md              # Документация
 **/LICENSE                # Лицензии
+**/wwwroot
 
 # Исключения для Git
 !**/.gitignore
