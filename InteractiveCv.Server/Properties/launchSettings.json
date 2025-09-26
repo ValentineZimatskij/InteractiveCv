@@ -7,6 +7,13 @@
       "workingDirectory": "$(ProjectDir)",
       "launchBrowser": false
     },
+    "Docker down": {
+      "commandName": "Executable",
+      "executablePath": "cmd.exe",
+      "commandLineArgs": "/c docker compose down",
+      "workingDirectory": "$(ProjectDir)",
+      "launchBrowser": false
+    },
     "IIS Express": {
       "commandName": "IISExpress",
       "launchBrowser": true,

@@ -1,31 +1,3 @@
-//{
-//  "compilerOptions": {
-//    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
-//    "target": "ES2022",
-//    "useDefineForClassFields": true,
-//    "lib": [ "ES2022", "DOM", "DOM.Iterable" ],
-//    "module": "ESNext",
-//    "skipLibCheck": true,
-
-//    /* Bundler mode */
-//    "moduleResolution": "bundler",
-//    "allowImportingTsExtensions": true,
-//    "verbatimModuleSyntax": true,
-//    "moduleDetection": "force",
-//    "noEmit": true,
-//    "jsx": "react-jsx",
-
-//    /* Linting */
-//    "strict": true,
-//    "noUnusedLocals": true,
-//    "noUnusedParameters": true,
-//    "erasableSyntaxOnly": true,
-//    "noFallthroughCasesInSwitch": true,
-//    "noUncheckedSideEffectImports": true
-//  },
-//  "include": [ "src" ]
-//}
-
 {
   "compilerOptions": {
     "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
@@ -47,15 +19,34 @@
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "erasableSyntaxOnly": true,
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true,
 
-    /* Additional options for React */
+    /* ES Module Interop */
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true,
+
+    /* Resolve modules */
     "resolveJsonModule": true,
-    "isolatedModules": true
+    "isolatedModules": true,
+
+    /* Type checking enhancements */
+    "exactOptionalPropertyTypes": true,
+    "noImplicitReturns": true,
+    "noImplicitAny": true,
+    "noImplicitThis": true,
+    "strictNullChecks": true,
+    "strictFunctionTypes": true,
+    "strictBindCallApply": true,
+    "strictPropertyInitialization": true,
+
+    /* Module resolution */
+    "baseUrl": ".",
+    "paths": {
+      "@/*": [ "src/*" ]
+    }
   },
-  "include": [ "src" ]
+  "include": [ "src" ],
+  "exclude": [ "node_modules", "dist", "**/*.test.ts", "**/*.test.tsx" ]
 }
